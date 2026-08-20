@@ -1,0 +1,153 @@
+.newsPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    background-color: #fff; /* 연한 그레이 배경 */
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 1200px;
+    margin: 100px auto;
+}
+
+.newstitle {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.newList{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.newsItem {
+    display: flex;           /* Flex 사용 */
+    flex-direction: row;     /* 가로 방향 배치 */
+    border: 1px solid #ddd;
+    overflow: hidden;
+    background-color: #faf0e6;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+    gap: 1px;
+    align-items: center;
+    padding: 10px;
+}
+
+/*보류*/
+.newsItem:hover {
+    transform: translateY(0px);
+}
+
+.newImage {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border:1px solid black;
+}
+
+.newsContent {
+    padding: 0 10px;
+}
+
+.newsHeadline {
+    font-size: 18px;
+}
+
+
+
+.news-link {
+    text-decoration: none;
+    color: #ff8000;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.pagination {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    margin-top: 50px;
+    padding: 0;
+}
+
+.pagination li {
+    margin: 0 5px;
+}
+
+.pagination button {
+    border: 1px solid #ddd;
+    padding: 6px 12px;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.pagination button:hover {
+    background: #ffefdd;
+}
+
+.pagination button.active {
+    background-color: #ffa500;
+    color: black;
+}
+
+.pagination button:disabled {
+    background-color: #f0f0f0;
+    color: #999999;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.pagination .handlePrevBtn,
+.pagination .handleNextBtn{
+    font-size: 12px;
+    background-color: #ffa500;
+    color: black;
+    font-weight: 600;
+}
+
+.pagination .pageBtn{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.newsContent a{
+    text-decoration: none;
+    color: black;
+}
+
+.newsContent h2{
+    margin-bottom:0;
+}
+
+.newsContent p{
+    margin-top:0;
+}
+
+.readMore {
+    cursor: pointer;          /* 마우스 포인터로 변경 */
+    color: blue;              /* 기본 글자색 */
+    font-weight: bold;        /* 글자 굵게 */
+    text-decoration: underline; /* 밑줄 */
+    background: none;         /* 기본 버튼/label 배경 제거 */
+    border: none;             /* 테두리 제거 */
+    padding: 0;               /* 여백 제거 */
+    font-size: inherit;       /* 부모 폰트 사이즈 상속 */
+}
+
+.readMore:hover {
+    opacity: 0.8;             /* 마우스 올렸을 때 살짝 투명 */
+    color: darkblue;           /* 색상 변화 */
+}
+
+.newsHeadline:hover,
+.newsUrl:hover {
+    text-decoration: underline;
+}

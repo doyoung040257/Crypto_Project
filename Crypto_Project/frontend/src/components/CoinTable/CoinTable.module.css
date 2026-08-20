@@ -1,0 +1,49 @@
+.container {
+    margin: 20px auto;
+}
+
+.title {
+    margin-left: 10%; /* 테이블 너비와 맞추기 위한 여백 */
+}
+
+.table {
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.headerCell {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+    font-weight: bold;
+    background-color: #f4f4f4;
+}
+
+.cell {
+    padding: 8px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+/* 테이블 행 기본 스타일 */
+.row {
+    cursor: pointer;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+.row:hover {
+    background-color: rgb(255, 235, 208);
+}
+
+/* 선택된 행 스타일 */
+.selectedRow {
+    background-color: #ffcc00 !important; /* 노란색 강조 */
+}
+
+.coinIcon {
+    vertical-align: middle;
+    margin-right: 5px;
+}

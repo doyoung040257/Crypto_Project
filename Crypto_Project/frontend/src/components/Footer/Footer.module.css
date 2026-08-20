@@ -1,0 +1,21 @@
+
+.footer {
+    padding: 5px 15px 5px;  /* 위쪽 여백을 넉넉히 주어 본문과 구분 */
+    text-align: center;
+    border-top: 1px solid #eee;
+    background-color: #faf0e6;
+    color: #000000;
+
+    display: flex; 
+    justify-content: center; /* 중앙 정렬 (왼쪽 정렬을 원하면 flex-start) */
+    align-items: center;     /* 세로축 중앙 정렬 */
+    gap: 10px;               /* 브랜드와 저작권 사이 간격 */
+}
+
+.brand {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    margin: 0;
+    line-height: 1;
+}

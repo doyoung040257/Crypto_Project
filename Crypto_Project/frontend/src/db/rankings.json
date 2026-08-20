@@ -1,0 +1,46 @@
+{
+  "rankings": [
+    { 
+      "id": 1, 
+      "name": "김철수", 
+      "asset": 12000000, 
+      "profitRate": 20.50 
+    },
+    { 
+      "id": 2, 
+      "name": "이영희", 
+      "asset": 11500000, 
+      "profitRate": 15.23 
+    },
+    { 
+      "id": 3, 
+      "name": "박민수", 
+      "asset": 10800000, 
+      "profitRate": 8.91 
+    },
+    { 
+      "id": 4, 
+      "name": "최지은", 
+      "asset": 9500000, 
+      "profitRate": -5.10 
+    },
+    { 
+      "id": 5, 
+      "name": "한동준", 
+      "asset": 9200000, 
+      "profitRate": -8.76 
+    },
+    { 
+      "id": 6, 
+      "name": "정수민", 
+      "asset": 10050000, 
+      "profitRate": 0.50 
+    },
+    { 
+      "id": 7, 
+      "name": "윤아름", 
+      "asset": 9980000, 
+      "profitRate": -0.20 
+    }
+  ]
+}

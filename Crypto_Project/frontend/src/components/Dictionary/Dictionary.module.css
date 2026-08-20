@@ -1,0 +1,417 @@
+/* ============================================================
+   components/Dictionary/Dictionary.module.css
+   병합본: 기존 스타일 + 중앙 정렬/좌우 여백/세로 플렉스/표형 리스트 등
+   ============================================================ */
+
+/* 페이지 래퍼(선택적으로 .dictionaryPage가 루트에 붙어있을 때 적용) */
+.dictionaryPage {
+  /* 기본 배경 유지(원하면 변경) */
+  background-color: inherit;
+  padding-left: 24px;
+  padding-right: 24px;
+  box-sizing: border-box;
+}
+
+/* 컨테이너: 중앙 정렬 + 좌우 여백 확보 + 플렉스 레이아웃 */
+.container {
+  display: flex;                 /* 반드시 필요 */
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;                /* 가운데 정렬 */
+  padding: 20px;
+  box-sizing: border-box;
+  align-items: flex-start;       /* 오른쪽 패널이 아래로 붙지 않도록 */
+  align-content: flex-start;
+  min-height: calc(100vh - 120px); /* 화면 높이 확보(헤더/여백 고려) */
+}
+
+/* 왼쪽: 검색/목록 영역 - 세로 플렉스(상단: 검색, 하단: 결과 채움) */
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1 1 auto;    /* 가변 너비 */
+  min-width: 320px;
+  box-sizing: border-box;
+  padding-right: 12px; /* 내부 여백 */
+}
+
+/* 오른쪽: 상세 패널 - 고정 너비(반응형 범위) */
+.right {
+  flex: 0 0 420px;     /* 고정폭 420px */
+  max-width: 420px;
+  background: #ffffff; /* 혹시 모르니 정확히 흰색으로! */
+  border: 1px solid #ddd; /* 로그인 컨테이너와 비슷하게 연한 테두리 */
+  border-radius: 8px;
+  padding: 16px;
+  box-sizing: border-box;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+
+  margin-top: 100px; /* 이 값은 필요에 따라 조정 */
+
+  position: sticky;
+  top: 50px; /* 헤더 높이 + 여유값: 필요시 조정 */
+  align-self: start; /* 부모 flex 컨테이너에서 위쪽 정렬 보장 */
+
+  /* 🌟 모달처럼 뜨는 효과를 위해 box-shadow 추가! */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 로그인 창과 비슷하게 조정 */
+  z-index: 10; /* 혹시 모를 다른 요소 위에 오도록 z-index 부여 (큰 의미는 없을 수 있음) */
+}
+
+/* 모바일에서 sticky 비활성화(원하면) */
+@media (max-width: 767px) {
+  .right {
+    position: static;
+    top: auto;
+  }
+}
+
+/* 기본 검색 입력/버튼 */
+.searchForm { display:flex; gap:8px; margin-bottom:8px; }
+
+/* 🌟 검색 입력 박스 스타일 변경 (더 둥글게!) */
+.searchInput {
+  flex:1;
+  padding:12px; /* padding을 조금 더 늘려서 높이를 버튼과 맞추거나 보기 좋게! */
+  border:1px solid #ccc;
+  border-radius:8px; /* ✨ 선택 박스와 버튼처럼 8px로 더 둥글게! */
+  font-size:14px;
+  background-color: #fcfcfc; /* 로그인 입력창처럼 연한 배경색 */
+  outline: none; /* 기본 포커스 아웃라인 제거 */
+}
+
+.searchInput:focus {
+  border-color: #ff7f00; /* 포커스 시 주황색 테두리 */
+  box-shadow: 0 0 0 3px rgba(255,127,0,0.2); /* 주황색 그림자 추가 */
+}
+
+/* 🌟 '검색' 버튼 스타일 (주황색으로 통일) */
+.searchBtn {
+  padding: 10px 15px; /* 검색창 높이에 맞춰서 padding 조절이 필요할 수 있어! */
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.searchBtn:hover {
+  background-color: #e67300;
+}
+.searchBtn:focus {
+  outline: 3px solid rgba(255,127,0,0.3);
+}
+
+/* Advanced / Suggestion */
+.advanced { display:flex; gap:8px; align-items:center; margin-bottom:8px; }
+/* 🌟 '적용' 버튼 스타일 (주황색으로 통일)
+   AdvancedSearch 컴포넌트 내부의 '적용' 버튼 클래스가 '.applyBtn'이라고 가정했어요!
+   만약 실제 클래스 이름이 다르다면, 'AdvancedSearch.jsx'를 확인해서 이 클래스 이름을 바꿔주세요!
+*/
+.applyButton {
+  padding: 7px 15px;
+  background-color: #ff7f00; /* 주황색 배경 */
+  color: white;        /* 흰색 글씨 */
+  border: none;        /* 테두리 제거 */
+  border-radius: 6px;  /* 모서리 둥글게 */
+  font-size: 14px;     /* 글씨 크기 조정 */
+  font-weight: bold;   /* 글씨 두껍게 */
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.applyButton:hover {
+  background-color: #e67300;
+}
+.applyButton:focus {
+  outline: 3px solid rgba(255,127,0,0.3);
+}
+
+/* 🌟 카테고리 선택 박스 스타일 */
+.selectBox {
+  flex: 1; /* 옆에 있는 버튼과 잘 어울리도록 가변 너비로 설정 */
+  box-sizing: border-box;
+  padding: 8px 12px; /* 버튼과 높이를 비슷하게 조절 */
+  font-size: 14px;
+  line-height: 1.3;
+  border: 1px solid #ccc; /* 검색 input, 버튼들과 비슷한 테두리 색상 */
+  border-radius: 8px; /* ✨ 주황색 버튼과 비슷하게 더 둥글게! */
+  background: #fff;
+  color: #111;
+  appearance: none; /* 브라우저 기본 스타일 제거 (선택적) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-7.2%200-13%205.8-13%2013s5.8%2013%2013%2013h255.2c7.2%200%2013-5.8%2013-13.0%200-5.6-2.2-10.7-5.4-13zM287%20223.8a17.6%2017.6%200%200%200-13-5.4H18.4c-7.2%200-13%205.8-13%2013s5.8%2013%2013%2013h255.2c7.2%200%2013-5.8%2013-13.0%200-5.6-2.2-10.7-5.4-13z%22%2F%3E%3C%2Fsvg%3E'); /* 사용자 정의 화살표 아이콘 */
+  background-repeat: no-repeat;
+  background-position: right 8px center; /* 화살표 위치 조절 */
+  background-size: 12px; /* 화살표 크기 조절 */
+  padding-right: 28px; /* 화살표 때문에 글자가 가려지지 않도록 패딩 추가 */
+}
+
+.selectBox:focus {
+  border-color: #ff7f00; /* 포커스 시 주황색 테두리 */
+  outline: none; /* 기본 아웃라인 제거 */
+  box-shadow: 0 0 0 3px rgba(255,127,0,0.2); /* 주황색 그림자 추가 */
+}
+
+
+.suggestList { list-style:none; margin:0; padding:8px; border:1px solid #eee; background:#fafafa; border-radius:6px; max-height:180px; overflow:auto; }
+.suggestItem { padding:6px 8px; cursor:pointer; }
+.suggestItem:hover, .suggestItem:focus {
+  background: rgba(255, 127, 0, 0.1); /* ✨ 연한 주황색 배경으로 통일! */
+  outline: none; /* 기본 아웃라인 제거 (선택적) */
+  border-radius: 4px; /* 살짝 둥글게 해서 시각적 통일감 */
+}
+.suggestButton {
+ background: #ff7f00; /* 주황색 배경 */
+  border: none;        /* 테두리는 없애서 깔끔하게! */
+  color: white;        /* 흰색 글자 */
+
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s; /* 호버 효과 */
+}
+
+/* 기존 리스트 관련 (예전 용도 보존) */
+.resultList { list-style:none; padding:0; margin-top:12px; }
+.resultItem { padding:12px; border-bottom:1px solid #f0f0f0; cursor:pointer; }
+.excerpt { color:#666; font-size:13px; margin-top:6px; }
+
+/* 상세 헤더(기존) - 보존 */
+.detailHeader { display:flex; justify-content:flex-end; }
+.termName { margin:0; }
+
+/* detailBody 기존 스타일(보존하되 필요시 더 이상 사용하지 않을 수 있음) */
+.detailBody { display:flex; gap:12px; margin-top:12px; }
+.related { width:140px; border-right:1px solid #eee; padding-right:10px; }
+.description { flex:1; }
+.detailEmpty { color:#999; padding:40px; text-align:center; }
+
+
+/* select 기본 스타일 초기화 및 가독성 확보 */
+.resultSelect {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  font-size: 14px;
+  line-height: 1.3;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background: #fff;
+  color: #111;
+  appearance: none; /* 필요시 기본 화살표 제거 (브라우저별 차이) */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* 여러 줄 보이도록 높이 자동 조정 대신 size 속성 사용 */
+.resultSelect option { padding: 6px; }
+
+/* 포커스 시 가시성 */
+.resultSelect:focus { outline: 3px solid rgba(74,144,226,0.25); }
+
+.loading, .noResult {
+  padding: 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+/* ========== TermDetail 섹션/디바이더 스타일 ========== */
+/* 섹션 블록 공통 */
+.sectionBlock { padding: 12px 0; }
+
+/* 구분선 (얇고 연한 선) */
+.blockDivider {
+  height: 1px;
+  background: rgba(0,0,0,0.06); /* 연한 회색선 */
+  margin: 6px 0;
+  border-radius: 1px;
+}
+
+/* 헤더(제목) 블록 */
+.headerBlock {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+}
+.termNameLeft { margin: 0; font-size: 20px; font-weight: 700; }
+
+/* 카테고리 */
+.detailCategory { color: #444; font-size: 14px; }
+
+/* 설명 영역 */
+.descriptionBlock .sectionTitle,
+.relatedBlock .sectionTitle {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  color: #333;
+}
+.descriptionText {
+  margin: 0;
+  color: #222;
+  line-height: 1.7;
+  font-size: 14px;
+  white-space: pre-wrap; /* 줄바꿈 보존 */
+}
+
+.descriptionText p {
+  margin: 0 0 12px 0; /* 문단 간격 */
+  word-break: keep-all;
+}
+
+.descriptionText p:last-child {
+  margin-bottom: 0;
+}
+
+/* 연관어 블록 */
+.relatedList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.relatedItem { margin: 0; }
+
+/* 🌟 '연관어' 버튼 스타일 (주황색으로 통일) */
+.relatedButton {
+  background: #ff7f00; /* 주황색 배경 */
+  border: none;        /* 테두리는 없애서 깔끔하게! */
+  color: white;        /* 흰색 글자 */
+
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background 0.2s; /* 호버 효과 */
+}
+.relatedButton:hover {
+  background: #e67300; /* 호버 시 약간 진한 주황색 */
+}
+.relatedButton:focus {
+  outline: 3px solid rgba(255,127,0,0.3); /* 주황색 계열 포커스 아웃라인 */
+}
+
+/* '없음' 스타일 */
+.noRelated { color: #999; font-style: italic; }
+
+/* ========== TermList (표형) 스타일 ========== */
+/* 결과 래퍼: left 내부에서 '남은 영역'을 채움 */
+.resultWrap {
+  flex: 1 1 auto;
+  overflow: hidden; /* 내부에서만 스크롤되도록 */
+  display: block;
+}
+
+/* 표 스타일: 테이블 전체 */
+.resultTable {
+  width: 100%;
+  border-collapse: collapse;
+  height: 100%;
+  display: block; /* tbody 스크롤을 위해 block으로 변경 */
+  table-layout: fixed; /* 🌟 테이블 너비를 고정하여 끊기는 현상 방지 */
+}
+
+.resultHead { display: table-header-group; }
+
+.headCell {
+  text-align: left;
+  padding: 10px 12px;
+  font-weight: 600;
+  border-bottom: 1px solid #eee;
+  background: #fafafa;
+  font-size: 14px;
+}
+
+/* tbody는 스크롤 영역 */
+.resultBody {
+  display: block;
+  max-height: calc(100% - 44px); /* 헤더 높이(대략) 차감 */
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* 각 행을 가로 전체로 표시 */
+.resultRow {
+  display: table;
+  width: 100%;
+  table-layout: fixed; /* 이 속성은 resultTable로 옮겼어요! */
+  border-bottom: 1px solid #f5f5f5;
+  cursor: pointer; /* 🌟 행 전체가 클릭 가능함을 표시 */
+  transition: background-color 0.2s ease; /* 🌟 호버 시 부드러운 전환 효과 */
+}
+
+/* 🌟 마우스 오버 시 주황색 하이라이트 효과 */
+.resultRow:hover {
+  background-color: rgba(255, 127, 0, 0.1); /* 연한 주황색 배경 */
+}
+
+/* 셀 스타일 */
+.termCell {
+  padding: 10px 12px;
+  vertical-align: top;
+  width: 35%;
+  box-sizing: border-box;
+}
+.excerptCell {
+  padding: 10px 12px;
+  vertical-align: top;
+  color: #555;
+  font-size: 13px;
+  width: 65%; /* 🌟 65%로 수정 */
+  box-sizing: border-box;
+  line-height: 1.4; /* 설명을 여러 줄 보여줄 경우를 대비해서 줄 간격 조정 */
+}
+
+/* 버튼 형태의 행 클릭 영역 */
+.rowButton {
+  display: inline-block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: #000000;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 15px;
+}
+.rowButton:hover {
+  text-decoration: underline;
+}
+
+.rowButton:focus {
+  outline: none; 
+  border-radius: 4px; /* 기존 border-radius는 유지 */
+}
+
+
+
+
+/* 결과 영역 내부 스크롤바 스타일(선택) */
+.resultBody::-webkit-scrollbar { width: 10px; }
+.resultBody::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.08); border-radius: 8px; }
+
+/* 기존 클래스의 보완(필요시 덮어쓰기) */
+.resultList { list-style:none; padding:0; margin-top:12px; }
+.resultItem { padding:12px; border-bottom:1px solid #f0f0f0; cursor:pointer; }
+
+/* 모바일에서 표 대신 세로 리스트로 보이게(선택) */
+@media (max-width: 767px) {
+  .container { flex-direction: column; padding: 12px; }
+  .dictionaryPage { padding-left: 12px; padding-right: 12px; }
+  .resultHead { display: none; }
+  .resultRow { display: block; padding: 8px 0; }
+  .termCell, .excerptCell { display: block; width: 100%; padding: 6px 0; }
+  .resultBody { max-height: 50vh; }
+  .sectionBlock { padding: 10px 0; }
+  .blockDivider { margin: 8px 0; }
+  .termNameLeft { font-size: 18px; }
+}

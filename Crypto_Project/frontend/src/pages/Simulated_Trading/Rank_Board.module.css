@@ -1,0 +1,318 @@
+/* Rank_Board.module.css */
+
+
+
+.rankboard_container {
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background-color: #fff;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+
+  box-sizing: border-box; /* 패딩이 너비에 포함되도록 설정 */
+
+}
+
+
+
+.header_section {
+
+  padding: 15px 20px 10px 20px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+
+.title {
+
+  font-size: 18px;
+
+  font-weight: 800;
+
+  color: #333;
+
+  margin: 0;
+
+}
+
+
+
+.timerBadge {
+
+  background-color: #fff5eb;
+
+  color: #ff7f00;
+
+  padding: 4px 10px;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  border: 1px solid #ff7f00;
+
+}
+
+
+
+/* 🌟 My Rank 깨짐 방지 스타일 */
+
+.myRankTop {
+
+  background-color: #ff7f00;
+
+  color: white;
+
+  margin: 5px 15px 15px 15px;
+
+  padding: 12px 18px;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  justify-content: space-between; /* 양 끝 정렬 */
+
+  align-items: center;
+
+  gap: 10px;
+
+  min-height: 0px;
+
+}
+
+
+
+.myRankLeft {
+
+  display: flex;
+
+  flex-direction: column;
+
+  flex-shrink: 0; /* 순위 영역은 절대 줄어들지 않음 */
+
+}
+
+
+
+.myLabel {
+
+  font-size: 9px;
+
+  font-weight: bold;
+
+  opacity: 0.9;
+
+  letter-spacing: 0.5px;
+
+}
+
+
+
+.myPos {
+
+  font-size: 18px;
+
+  font-weight: 900;
+
+}
+
+
+
+.myRankMid {
+
+  flex: 1; /* 이름 영역이 가변적으로 늘어남 */
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 14px;
+
+  font-weight: 500;
+
+  padding-left: 5px;
+
+}
+
+
+
+.myRankRight {
+
+  flex-shrink: 0; /* 숫자 영역도 줄어들지 않게 함 */
+
+  text-align: right;
+
+  min-width: 100px;
+
+}
+
+
+
+.myValue {
+
+  font-size: 15px;
+
+  font-weight: 800;
+
+  display: block;
+
+}
+
+
+
+/* 🌟 랭킹 기준 선택 버튼 컨테이너 (Trade_Board 스타일 참고) */
+
+.criteriaButtons {
+
+  display: flex;
+
+  width: 80%;
+
+  background-color: #ff7f00;
+
+  border-radius: 40px;
+
+  padding: 4px;
+
+  margin-bottom: 20px;
+  margin-left: 23px;
+
+}
+
+
+
+.criteriaButtons button {
+
+  flex: 1;
+
+  border: none;
+
+  background: transparent;
+
+  border-radius: 40px;
+
+  color: #fff;
+
+  font-weight: 700;
+
+  font-size: 14px;
+
+  padding: 8px 0;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+}
+
+
+
+/* 🌟 활성화된 버튼 스타일 */
+
+.criteriaButtons button.activeButton {
+
+  background-color: #f5deb3;
+
+  color: #000;
+
+}
+
+
+
+.tableWrapper {
+
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 0 15px;
+
+}
+
+
+
+.rankTable {
+
+  width: 100%;
+
+  border-collapse: collapse;
+
+  /* table-layout: fixed; 전체 테이블 고정 */
+
+}
+
+
+
+.rankTable th {
+
+  padding: 10px 5px;
+
+  font-size: 11px;
+
+  color: #aaa;
+
+  border-bottom: 2px solid #f5f5f5;
+
+}
+
+
+
+.rankTable td {
+
+  padding: 12px 5px;
+
+  font-size: 13px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #f9f9f9;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+}
+
+
+
+.assetCol {
+
+  text-align: right !important;
+
+  padding-right: 15px !important;
+
+  font-weight: 600;
+
+  color: #444;
+
+}
+
+
+
+.highlightRow { background-color: #fff9f2; }
+
+.positive { color: #d60000; font-weight: 700; }
+
+.negative { color: #0026ff; font-weight: 700; }

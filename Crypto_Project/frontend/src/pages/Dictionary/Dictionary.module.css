@@ -1,0 +1,63 @@
+/* 페이지 전체 바깥 여백(브라우저 가장자리와의 간격) */
+.dictionaryPage {
+  background-color: black; /* 기존 유지(원하면 제거) */
+  padding: 24px;           /* 화면 가장자리에서 일정 여백 확보 */
+  box-sizing: border-box;
+}
+
+/* 중앙 캔버스: 최대 너비를 유지하고 가운데 정렬, 좌우 마진 확보 */
+.container {
+  display: flex;
+  gap: 20px;
+  /* 기존 max-width 유지하되 중앙 정렬과 좌우 자동 마진 추가 */
+  max-width: 1200px;
+  margin: 0 auto;       /* 화면 중앙 정렬 */
+  padding: 20px;        /* 내부 여백(기존) 유지 */
+  box-sizing: border-box;
+}
+
+/* 화면이 넓을 때 양쪽에 더 여유를 주고 싶으면 container를 감싸는 부모에 padding 제한을 둔다.
+   (이미 .dictionaryPage에 padding을 넣었으므로 큰 화면에서는 좌우에 충분한 여백이 생김) */
+
+/* 왼쪽/오른쪽 칼럼 높이/스크롤 안전화 */
+.left {
+  flex: 1;
+  min-width: 320px;
+  box-sizing: border-box;
+  /* 필요 시 내부에 패딩 추가하여 여백 확보 가능 */
+  padding-right: 8px;
+}
+
+.right {
+  width: 420px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 16px;
+  height: calc(100vh - 140px); /* 헤더/여백 여유분 더 확보(원하는 값으로 조정) */
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+/* 모바일(작은 화면) 대응: 세로 스택, 우측 패널은 full-width로 */
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
+  }
+
+  .right {
+    width: 100%;
+    height: auto;
+    max-height: none;
+  }
+}
+
+/* 보조: 중앙 캔버스 너비를 화면 대비 비율로 주고 싶다면 (선택)
+   예: 화면이 아주 넓을 때는 max-width보다 더 여유를 주는 방식 */
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1100px; /* 화면이 클 때 콘텐츠 폭을 약간 줄여 양쪽 여백 확보 */
+  }
+}

@@ -1,0 +1,179 @@
+/* ===== 거래내역 ===== */
+.historyBoard {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Noto Sans KR', sans-serif;
+    height: 100%;               /* 🔑 부모 높이 기준 */
+}
+
+/* 제목 */
+.historyBoard h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 8px 0 6px 0;
+    padding: 0;
+    padding-left: 10px;
+}
+
+/* 🔑 테이블 스크롤 영역 */
+.tableWrap {
+    flex: 1;
+    overflow-y: auto;
+
+    /* 스크롤바 숨김 */
+    scrollbar-width: none;      /* Firefox */
+    -ms-overflow-style: none;   /* IE, Edge */
+}
+
+.tableWrap::-webkit-scrollbar {
+    display: none;              /* Chrome, Safari */
+}
+
+/* ===== 테이블 ===== */
+.historyBoard table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 10px; /* 행 간 여백 */
+    font-size: 13px;
+}
+
+/* 헤더 */
+.historyBoard thead th {
+    padding: 10px 8px;
+    background-color: #faf0e6;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+/* 행 */
+.historyBoard tbody tr {
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+/* 셀 */
+.historyBoard td {
+    padding: 10px 8px;
+    text-align: center;
+}
+
+/* hover */
+.historyBoard tbody tr:hover {
+    background-color: #fdf5ee;
+}
+
+/* 숫자 컬럼 */
+.historyBoard td:nth-child(3),
+.historyBoard td:nth-child(5) {
+    text-align: right;
+    font-weight: 600;
+}
+
+.historyBoard td:nth-child(2),
+.historyBoard td:nth-child(4){
+    text-align: center;
+    font-weight: 600;
+}
+
+
+/* 데이터 없음 */
+.historyBoard td[colspan] {
+    padding: 24px;
+    color: #999;
+}
+
+.buy { color: #ff4d4f; }
+.sell { color: #1890ff; }
+
+/* 이름 */
+.historyBoard th:nth-child(1),
+.historyBoard td:nth-child(1) {
+    width: 30%;
+}
+
+/* 유형 */
+.historyBoard th:nth-child(2),
+.historyBoard td:nth-child(2) {
+    width: 12%;
+}
+
+/* 가격 */
+.historyBoard th:nth-child(3),
+.historyBoard td:nth-child(3) {
+    width: 14%;
+}
+
+/* 수량 */
+.historyBoard th:nth-child(4),
+.historyBoard td:nth-child(4) {
+    width: 10%;
+}
+
+/* 총 가격 */
+.historyBoard th:nth-child(5),
+.historyBoard td:nth-child(5) {
+    width: 16%;
+}
+
+/* 날짜 */
+.historyBoard th:nth-child(6),
+.historyBoard td:nth-child(6) {
+    width: 26%;
+}
+.historyBoard td:nth-child(1),
+.historyBoard td:nth-child(2),
+.historyBoard td:nth-child(3),
+.historyBoard td:nth-child(4),
+.historyBoard td:nth-child(5),
+.historyBoard td:nth-child(6){
+    font-size: 12px;
+}
+
+/* 날짜 */
+.historyBoard td:nth-child(6) {
+    font-size: 12px;
+    color: #888;
+}
+
+.thSelect {
+    width: 100%;
+    padding: 6px 0;
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 999px; /* pill 모양 */
+
+    cursor: pointer;
+
+    /* 기본 화살표 완전 제거 */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* hover */
+.thSelect:hover {
+    border-color: #aaa;
+    background-color: #fafafa;
+}
+
+/* focus */
+.thSelect:focus {
+    outline: none;
+    border-color: #283593;
+    box-shadow: 0 0 0 2px rgba(40, 53, 147, 0.15);
+}
+
+/* 비활성화 (혹시 나중에 쓸 경우) */
+.thSelect:disabled {
+    background-color: #f5f5f5;
+    color: #aaa;
+    cursor: not-allowed;
+}
+

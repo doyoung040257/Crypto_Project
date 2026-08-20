@@ -1,0 +1,46 @@
+/* .sectionStyle */
+.section {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+/* .infoRowStyle */
+.infoRow {
+    margin-bottom: 8px;
+}
+
+/* 코인 이름 및 이미지 컨테이너 스타일 */
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.coinImage {
+    margin-right: 10px;
+}
+
+.coinName {
+    margin: 0;
+}
+
+/* 코인 설명 섹션 스타일 */
+.descriptionContainer {
+    margin-top: 20px;
+}
+
+.descriptionText {
+    font-size: 0.9em;
+    line-height: 1.5;
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+
+/* 오류 메시지 스타일*/
+.error {
+    color: red;
+}

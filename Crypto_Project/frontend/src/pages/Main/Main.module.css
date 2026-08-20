@@ -1,0 +1,302 @@
+.body{
+    width: 100%;
+    background-color: #fff;
+}
+
+
+.coinLable{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0 30px;
+}
+
+
+.middle{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1300px;
+    gap: 30px;
+}
+
+/*좌측*/
+.left{
+    flex:3;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.News, .Coin {
+    flex: 1;
+    /* background-color: #faf0e6; */
+    height: 600px;
+}
+
+/*우측*/
+.right{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+
+} 
+
+.Login{
+    flex:1;
+    /* background-color: #faf0e6; */
+}
+
+.coinList{
+    flex:3;
+    /* background-color: #faf0e6; */
+}
+
+
+/*뉴스 공간*/
+.sectionTitle{
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 23px;
+    font-weight: 700;
+    color: black;
+    
+}
+
+.newsItem{
+    display: flex;
+    flex-direction: row;
+    height: 110px;
+    gap: 10px;
+}
+
+.newsImage{
+    height: 90px;
+    width: 90px;
+    padding: 5px 0px 0px 0px;
+}
+
+.newsItem p{
+    margin:2px 0;
+}
+
+.newsItem a{
+    color: black;
+    text-decoration: none;
+}
+
+/*로그인 박스*/
+.loginBox{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 17px;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginBtn p {
+    margin: 10px;
+}
+
+.loginBtn{
+    width: 280px;
+    height: 45px;
+    font-size: 17px;
+    font-weight: 500;
+    color: white;
+    background-color: #ff7f00;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.loginBtn:hover{
+    background: #e66f00
+}
+
+.loginBottomBtn{
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 1fr;
+    align-items: center;
+    width: 280px;
+    margin: 10px;
+    gap: 12px;
+}
+
+.loginBottomBtn > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBottomBtn button{
+    border: none;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    color: gray;
+}
+
+.loginBottomBtn label{
+    color: #ddd;
+}
+
+.loginState{
+    display: flex;
+    flex-direction: row;
+    width: 290px;
+    height: 80px;
+    padding: 10px 10px 0px 10px;
+    margin-bottom: 0px;
+}
+.userImage{
+    width: 70px;
+    height: 70px;
+    background-color: white;
+}
+
+.userInfo{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    padding-left: 7px;
+}
+
+.userBalance p {
+    margin: 0;
+    padding-bottom: 5px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #000000;
+    cursor: 'default'
+}
+
+.userBalance {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 7%;
+  background-color: #333;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+  z-index: 10;
+  margin-top: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.userName{
+    display: flex;
+    justify-content: space-between;
+}
+
+.userName button{
+    border-radius: 15px;
+    padding: 3px 15px;
+    border: 1px solid #ddd;
+    background: none;
+    color: #ddd;
+}
+
+.logoutBottomBtn{
+    display: grid;
+    grid-template-columns: 1fr 0.1fr 1fr;
+    align-items: center;
+    width: 280px;
+    margin: 0px;
+    gap: 12px;
+}
+
+.logoutBottomBtn > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logoutBottomBtn button{
+    border: none;
+    background: none;
+    padding: 0;
+    box-shadow: none;
+    cursor: pointer;
+    color: gray;
+    margin: 10px 0px;
+}
+
+.logoutBottomBtn label{
+    color: #ddd;
+}
+
+
+
+/*코인 리스트*/
+.coinSection{
+    padding: 2px;
+}
+
+.coinSection table {
+    width: 100%;
+    border-collapse: collapse; /* 칸 붙이기 */
+}
+
+.coinSection th{
+    padding: 8px 6px;
+    font-size: 14px;
+    color: #adb5bd;
+    font-weight: 500;
+}
+
+.coinSection td{
+    padding: 8px 6px;
+    font-size: 16px;
+}
+
+.coinSection th:nth-child(1),
+.coinSection td:nth-child(1) {
+    text-align: left;
+    font-weight: 500;
+}
+
+.coinSection th:nth-child(2),
+.coinSection td:nth-child(2),
+.coinSection th:nth-child(3),
+.coinSection td:nth-child(3) {
+    text-align: right;
+}
+
+
+
+
+.coinSection a {
+    text-decoration: none;
+    color: inherit; /* 부모 글자색 그대로 */
+}
+
+.up {
+  color: #d60000;
+}
+
+.down {
+  color: #0051c7;
+}
+
+.flat {
+  color: #333;
+}
+
+.coinchart{
+    margin-top: 20px;
+}

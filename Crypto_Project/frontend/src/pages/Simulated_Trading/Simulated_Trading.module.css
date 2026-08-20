@@ -1,0 +1,170 @@
+/* ===== 페이지 전체 ===== */
+.body {
+    width: 100%;
+    background-color: #fff;
+    font-family: 'Noto Sans KR', sans-serif;
+
+}
+
+/* 🔑 중앙 컨테이너 (양쪽 여백 확보) */
+.inner {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-bottom: 100px;;
+}
+
+/* ===== 메인 레이아웃 ===== */
+.container {
+    display: flex;
+    gap: 16px;
+    height: 800px;
+    overflow-x: auto;
+    margin-top: 80px;
+
+    overflow: hidden;
+}
+
+.left,
+.mid,
+.right {
+    min-height: 0; /* 🔑 부모 높이 초과 방지 */
+}
+
+/* ===== 좌측: 코인 목록 ===== */
+.left {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-height: 0; /* 🔑 스크롤 필수 */
+    flex: 0 0 430px;
+}
+
+/* 코인 테이블 카드 */
+/* 코인 테이블 카드 */
+.cryptoBox {
+    flex: 6;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    background-color: #fff;
+
+    /* 🔑 핵심 */
+    height: 100%;
+    overflow-y: auto;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+/* 코인 테이블 */
+.cryptoTable {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+/* 헤더 고정 */
+.cryptoTable thead {
+    background-color: #ff7f00;
+    color: #fff;
+    font-weight: 700;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+/* thead / tbody 컬럼 정렬 */
+.cryptoTable thead tr,
+.cryptoTable tbody tr {
+    width: 100%;
+}
+
+table td:nth-child(3),
+table td:nth-child(4),
+table td:nth-child(5) {
+    text-align: right;
+}
+
+.cryptoTable th,
+.cryptoTable td {
+    padding: 10px 5px;
+    padding-right: 10px;
+    font-size: 12px;
+}
+
+.cryptoTable tbody tr:hover {
+    background-color: #faf0e6;
+}
+
+.selectedRow {
+    background-color: #f5deb3;
+}
+
+table th:nth-child(1),
+table td:nth-child(1){
+    padding: 0 ;
+    padding-left: 4px;
+    margin: 0;
+}
+
+/* ===== 포트폴리오 요약 ===== */
+.binance {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #fafafa;
+}
+
+/* ===== 중앙: 거래 / 거래내역 ===== */
+.mid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 🔑 trade / history 간격 */
+    min-height: 0;
+    flex: 0 0 600px;
+}
+
+/* 거래 */
+.trade {
+    flex: 2;
+    border-radius: 12px;
+    padding-bottom: 12px;
+}
+
+
+/* 거래내역 */
+.history {
+    flex: 5;
+    /* border: 1px solid #ddd; */
+    border-radius: 12px;
+    padding: 1px 16px;
+    background-color: #fafafa;
+    overflow-y: auto;
+}
+
+/* ===== 우측: 랭킹 ===== */
+.right {
+    display: flex;
+    flex: 0 0 350px;
+}
+
+.rankboard {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #fff;
+}
+
+.up {
+  color: #e53935; /* 빨강 */
+  font-weight: 600;
+}
+
+.down {
+  color: #1e88e5; /* 파랑 */
+  font-weight: 600;
+}
+
+.same {
+  color: #000; /* 검정 */
+}

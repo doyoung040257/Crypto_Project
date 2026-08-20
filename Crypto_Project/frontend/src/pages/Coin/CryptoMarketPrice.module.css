@@ -1,0 +1,73 @@
+/* 페이지 전체: 헤더-푸터 사이 중앙 정렬 */
+.pageWrapper {
+  min-height: calc(100vh - 140px); /* 헤더/푸터 높이 고려 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 메인 박스 */
+.cryptoMarket {
+  width: 100%;
+  max-width: 1200px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* 제목 */
+.title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* 테이블 감싸는 영역 */
+.tableWrapper {
+  overflow-x: auto;
+}
+
+/* 테이블 */
+.cryptoTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+}
+
+.cryptoTable th,
+.cryptoTable td {
+  padding: 14px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.cryptoTable th {
+  background-color: #faf0e6;
+  font-weight: 600;
+
+}
+
+/* 즐겨찾기 */
+.favoriteCell {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* 코인 링크 */
+.coinLink {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* 상승 / 하락 / 보합 */
+.up {
+  color: #d60000;
+}
+
+.down {
+  color: #0051c7;
+}
+
+.flat {
+  color: #333;
+}

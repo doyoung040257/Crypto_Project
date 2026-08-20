@@ -1,0 +1,112 @@
+.main {
+    padding: 20px;
+    max-width: 1400px; /* 대시보드 형태이므로 폭을 조금 넓게 잡는 것이 좋습니다 */
+    margin: 0 auto;
+    font-family: sans-serif;
+}
+
+.title {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.refreshButton {
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #ff7f00;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.refreshButton:hover {
+    background-color: #ff7f00;
+}
+
+/* 전체 레이아웃 가로 배치 컨테이너 */
+.contentContainer {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+/* 왼쪽: 차트 영역 */
+.chartArea {
+    flex: 7; /* 70% 정도 차지 */
+    min-width: 0;
+}
+
+.infoBar {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #f1f3f5;
+    border-left: 5px solid #ff7f00;
+    border-radius: 4px;
+    font-size: 0.95em;
+}
+
+.chartWrapper {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+
+    height: 690px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 오른쪽: 코인 목록 영역 */
+.listArea {
+    flex: 3; /* 30% 정도 차지 */
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    padding: 20px;
+    position: sticky; /* 스크롤 시 화면 고정 */
+    top: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.listTitle {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 8px;
+}
+
+.scrollTable {
+    max-height: 75vh; /* 화면 높이에 맞춰 내부 스크롤 생성 */
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+.statusMessage {
+    padding: 20px;
+    text-align: center;
+    color: #666;
+}
+
+.errorText {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* 반응형 처리 */
+@media (max-width: 1024px) {
+    .contentContainer {
+        flex-direction: column;
+    }
+    .chartArea, .listArea {
+        width: 100%;
+        flex: none;
+    }
+    .listArea {
+        position: static;
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic",
+    // 💡 환경 변수 로드를 위한 설정 추가
+    "java.debug.settings.envFile": "${workspaceFolder}/.env"
+    
+}

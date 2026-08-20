@@ -1,0 +1,69 @@
+/* 컨테이너 */
+.container {
+    margin-bottom: 20px;
+}
+
+/* 타이틀 */
+.title {
+    font-size: 1.1em;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+/* 기간 선택 버튼 그룹 */
+.buttonGroup {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+/* 기간 선택 버튼 */
+.periodButton {
+    padding: 5px 12px;
+    font-size: 0.85em;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 40px;
+    transition: all 0.2s;
+}
+
+.periodButton:hover {
+    background-color: #f0f0f0;
+}
+
+/* 활성화된 버튼 */
+.activeButton {
+    font-weight: bold;
+    background-color: #ff7f00;
+    color: white;
+    border-color: #ff7f00;
+}
+
+/* 차트 캔버스 영역 */
+.chartWrapper {
+    height: 600px; /* 기존 CHART_HEIGHT 값 */
+    width: 100%;
+    margin-top: 5px;
+    position: relative; /* 로딩 메시지 위치 기준 */
+}
+
+/* 상태 메시지 */
+.statusMessage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #666;
+    background-color: #f9f9f9;
+    border: 1px dashed #ccc;
+    border-radius: 4px;
+}
+
+.error {
+    color: #dc3545;
+    padding: 10px;
+    border: 1px solid #f8d7da;
+    background-color: #f8d7da;
+    border-radius: 4px;
+}

@@ -1,0 +1,311 @@
+/* 기본 레이아웃 */
+.mypage-container {
+  padding: 20px;
+  max-width: 1000px;
+  margin: 70px auto;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.mypage-container h1 {
+  text-align: center;
+  color: black;
+  margin-bottom: 40px;
+}
+.welcome-message {
+  text-align:center;
+  color:#666;
+  font-size:1.1em;
+  margin-bottom:20px;
+  line-height:1.5;
+}
+section {
+  background:white;
+  padding:25px;
+  border-radius:8px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.05);
+  margin-bottom:30px;
+}
+section h2 {
+  color:#ff7f00;
+  font-size:1.8em;
+  border-bottom:2px solid #e0e0e0;
+  padding-bottom:20px;
+  margin-bottom:15px;
+  margin-top:0px;
+  text-align: center;
+}
+
+/* 카드 전체 */
+.portfolio-summary-card {
+  background: #faf0e6;
+  border-radius: 12px;
+  padding: 20px 24px 28px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 카드 제목 */
+.portfolio-summary-card h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #555;
+  margin: 0 0 20px 0;
+}
+
+/* 내부 박스 */
+.summarybox {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 상단 자산 영역 */
+.summary-top {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding-right:19px;
+}
+
+/* 큰 자산 숫자 */
+.summary-top p {
+  font-size: 26px;
+  font-weight: 700;
+  color: black;
+  margin: 0;
+}
+
+/* 하단 요약 영역 */
+.summary-details {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(140px, 1fr));
+  gap: 24px;
+  text-align: center;
+}
+
+/* 요약 아이템 */
+.summary-item {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* 항목 이름 */
+.summary-title {
+  font-size: 14px;
+  color: #666;
+  font-weight: 600;
+}
+
+/* 항목 값 */
+.summary-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+}
+
+/* 손익 색상 */
+.summary-details .profit {
+  color: #2e7d32;
+  font-weight: 700;
+}
+
+.summary-details .loss {
+  color: #2838c6;
+  font-weight: 700;
+}
+/* PieChart */
+.pie-chart-container {
+  display: flex;
+  align-items: center; /* 세로 가운데 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  gap: 30px; /* 원형차트와 범례 간격 */
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* 화면이 좁으면 범례 아래로 이동 */
+}
+
+.pie-chart-circle {
+  width:250px;
+  height:250px;
+  border-radius:50%;
+  position:relative;
+}
+
+.pie-center {
+  position:absolute;
+  width:50%;
+  height:50%;
+  background:white;
+  border-radius:50%;
+  inset:0;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  font-size: 14px;
+  align-items:center;
+  font-weight:bold;
+  text-align:center;
+}
+
+/* 범례 오른쪽 정렬, 글자 한 줄 유지 */
+.pie-chart-legend {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction: column; /* 세로 나열 */
+  gap:8px;
+  min-width:140px; /* 글자 폭 확보 */
+}
+
+.pie-chart-legend li {
+  display:flex;
+  align-items:center;
+  white-space: nowrap; /* 한 줄 유지 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.legend-color {
+  display:inline-block;
+  width:16px;
+  height:16px;
+  border-radius:0;
+  margin-right:10px; /* 글자와 색상 간격 */
+  border:1px solid #ccc;
+}
+
+.pie-empty-message {
+  text-align:center;
+  padding:20px;
+  color:#777;
+}
+
+/* 코인별 요약 표 */
+.coin-summary-table {
+  margin-top:30px;
+  overflow-x:auto;
+}
+.coin-summary-table table {
+  width:100%;
+  border-collapse:collapse;
+  text-align:right;
+  font-size:0.9em;
+}
+.coin-summary-table th, .coin-summary-table td {
+  padding:10px 8px;
+  border:1px solid #eee;
+  white-space:nowrap;
+}
+.coin-summary-table th {
+  background:#faf0e6;
+  text-align:center;
+}
+.coin-summary-table .profit {
+  color:#4caf50;
+  font-weight:bold;
+}
+.coin-summary-table .loss {
+  color:#f44336;
+  font-weight:bold;
+}
+
+/* 알림 설정 */
+.notification-list {
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.notification-list li {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 0;
+  border-bottom:1px solid #eee;
+}
+.toggle-switch {
+  position:relative;
+  display:inline-block;
+  width:48px;
+  height:24px;
+}
+.toggle-switch input {
+  opacity:0;
+  width:0;
+  height:0;
+}
+.slider {
+  position:absolute;
+  cursor:pointer;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#ccc;
+  transition:.4s;
+}
+.slider:before {
+  position:absolute;
+  content:"";
+  height:18px;
+  width:18px;
+  left:3px;
+  bottom:3px;
+  background:white;
+  transition:.4s;
+}
+input:checked + .slider {
+  background:#3f51b5;
+}
+input:checked + .slider:before {
+  transform:translateX(24px);
+}
+.slider.round {
+  border-radius:24px;
+}
+.slider.round:before {
+  border-radius:50%;
+}
+
+
+/* 보유 종목 없을 때 나오는 박스 */
+.empty-portfolio-box {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: #fcfcfc;
+  border: 2px dashed #e0e0e0;
+  border-radius: 15px;
+  margin: 20px 0;
+}
+
+.mypage-sub-text {
+  color: #888;
+  margin-bottom: 25px;
+}
+
+/* 매수하러 가기 버튼 */
+.buy-button {
+  background-color: #ff7f00;
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 98, 255, 0.2);
+}
+
+.buy-button:hover {
+  background-color: #ff7f00;
+  transform: translateY(-2px);
+}
+
+.coin-summary-table td:nth-child(1){
+  text-align: center;
+}
