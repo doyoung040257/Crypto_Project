@@ -1,2 +1,8 @@
 # .gitignore 파일 내용에 추가
 .env
+*.env
+application-secret.properties
+backend/build/
+backend/bin/
+backend/.gradle/
+node_modules/
